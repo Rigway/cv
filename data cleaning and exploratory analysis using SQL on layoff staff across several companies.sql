@@ -6,11 +6,11 @@ from layoffs;
 -- 3 Null values 0r BanK values
 -- 4 Remove any columns
 
-
+-- creating a new database from the original database--
 create table layoffs_staging
 select *
 from layoffs;
-
+-- Removing Duplicates--
 select *,
 Row_Number() over(partition by company, location, total_laid_off, 'date') AS row_num
 from layoffs_staging;
@@ -81,7 +81,7 @@ where Row_num>1;
 
 
 
--- Standization
+-- Standization--
 
 
 select company, trim(company)
@@ -161,7 +161,7 @@ drop column Row_num;
 
 
 
--- Exploratory data analysis
+-- Exploratory data analysis--
 
 
 SELECT *  
