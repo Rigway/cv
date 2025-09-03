@@ -74,6 +74,12 @@ from health_risk_dataset2;
 			case when systolic_BP <94 then 2 End AS new_score
 	       from health_risk_dataset2; 
 
+            -- min(avg) of systolic_bp
+            select systolic_BP, avg(systolic_BP), min(systolic_BP), max(systolic_BP), count(systolic_BP)
+           from health_risk_dataset2
+           group by Systolic_BP
+           order by systolic_BP desc;
+
         
 		        
 	
